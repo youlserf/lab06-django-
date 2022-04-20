@@ -3,7 +3,6 @@
  <!-- Page Content -->
  <!-- Page Content -->
  <div class="container">
-
   <div class="row">
 
     <div class="col-lg-3">
@@ -21,15 +20,43 @@
 {% if categoria.id == categoria.id %}
   
     <div class="row">
-      {% for producto in categoria.producto_set.all%}
-      <div class="col-12">
-        <h1>{{ producto.nombre}}</h1>
+    {% for producto in categoria.producto_set.all%}
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <a href="">
+          <img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="">{{ producto.nombre }}</a>
+          </h4>
+          <h5>{{ producto.precio }}</h5>
+          <p class="card-text">Categoría: {{ producto.categoria.nombre }}</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+        </div>
       </div>
-      {% endfor %}
     </div>
-  
+    {%  endfor %}
+    </div>
 {% endif %} 
 
-<h1>{{ productos.nombre}}</h1>
-
+<div class="row">
+  <div class="col-lg-4 col-md-6 mb-4">
+    <div class="card h-100">
+      <a href="">
+        <img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+      <div class="card-body">
+        <h4 class="card-title">
+          <a href="">{{ productos.nombre }}</a>
+        </h4>
+        <h5>{{ productos.precio }}</h5>
+        <p class="card-text">Categoría: {{ productos.categoria.nombre }}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
